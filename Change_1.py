@@ -26,18 +26,26 @@ def change(amount, currency_list):
     currency_list = sift_lower(amount, currency_list)
     length = len(currency_list)
     max_list = []
+    new_list = []
     for i in range(0, length):
         x = currency_list[i]
         y = cap(x, amount)
         max_list.append(y)
+        new_list.append(0)
 
-    for j in range 
+    while new_list != max_list:
+        new_list[0] = new_list[0] + 1
+        for i in range (0, length - 1):
+            
+
+    
+    
         
             
             
 
 list_1 = [1, 2, 5, 10, 20, 50, 100]
-print(change(5, list_1))
+print(change(9, list_1))
     
             
     
