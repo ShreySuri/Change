@@ -33,19 +33,36 @@ def change(amount, currency_list):
         max_list.append(y)
         new_list.append(0)
 
+    
+    counter = 0
     while new_list != max_list:
         new_list[0] = new_list[0] + 1
         for i in range (0, length - 1):
-            
+            if new_list[i] > max_list[i]:
+                new_list[i] = 0
+                new_list[i + 1] = new_list[i + 1] + 1
+            else:
+                toggle = True
+
+        total = 0
+        for j in range (0, length):
+            total = total + currency_list[j] * new_list[j]
+
+        if total == amount:
+            counter = counter + 1
+        else:
+            toggle = False
+
+    return(counter)
 
     
     
         
             
             
-
-list_1 = [1, 2, 5, 10, 20, 50, 100]
-print(change(9, list_1))
+amount = 1
+list_1 = [0.01, 0.05, 0.1, 0.25, 0.5, 1, 2, 5, 10, 20, 50, 100]
+print(change(amount, list_1))
     
             
     
